@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplikasi Bangun Datar</title>
+    <script src="TugasHitungLuasKeliling.js"></script>
+    <link href="TugasHitungLuasKeliling.css">
+</head>
+<body bgcolor="grey">
+    <h1>Aplikasi Bangun Datar</h1>
+    <table>
+        <tr>
+            <td>
+                <h3>Persegi Panjang</h3>
+                <p>Masukkan nilai panjang dan lebar (dalam cm)</p>
+                <p>Panjang: <input type="number" id="panjang"></p>
+                <p>Lebar: <input type="number" id="lebar"></p>
+                <button onclick="hitungPersegiPanjang()">Hitung</button>
+                <p id="luasPersegiPanjang"></p>
+                <p id="kelilingPersegiPanjang"></p>
+            </td>
+            <tr>
+                <h3>Segitiga</h3>
+                <p>Masukkan nilai alas, tinggi, dan sisi miring (dalam cm)</p>
+                <p>Alas: <input type="number" id="alas"></p>
+                <p>Tinggi: <input type="number" id="tinggi"></p>
+                <p>Sisi Miring: <input type="number" id="sisiMiring"></p>
+                <button onclick="hitungSegitiga()">Hitung</button>
+                <p id="luasSegitiga"></p>
+                <p id="kelilingSegitiga"></p>
+            </tr>
+            <td>
+                <h3>Lingkaran</h3>
+                <p>Masukkan nilai jari-jari (dalam cm)</p>
+                <p>Jari-Jari: <input type="number" id="jariJari"></p>
+                <button onclick="hitungLingkaran()">Hitung</button>
+                <p id="luasLingkaran"></p>
+                <p id="kelilingLingkaran"></p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
