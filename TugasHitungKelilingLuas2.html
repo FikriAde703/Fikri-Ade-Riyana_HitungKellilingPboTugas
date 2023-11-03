@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas Hitung Luas Dan Keliling</title>
+</head>
+<body>
+    <h1>Tugas Hitung Luas Dan Keliling</Label></h1>
+
+    <div id="menu">
+        <button onclick="showRectangleCalculator()">Persegi Panjang</button>
+        <button onclick="showTriangleCalculator()">Segitiga</button>
+        <button onclick="showCircleCalculator()">Lingkaran</button>
+    </div>
+
+    <div id="rectangleCalculator" style="display: none;">
+        <h2>Persegi Panjang</h2>
+        Panjang: <input type="number" id="rectLength"><br>
+        Lebar: <input type="number" id="rectWidth"><br>
+        <button onclick="calculateRectangle()">Hitung</button>
+        <p>Luas: <span id="rectAreaResult"></span></p>
+        <p>Keliling: <span id="rectPerimeterResult"></span></p>
+    </div>
+
+    <div id="triangleCalculator" style="display: none;">
+        <h2>Segitiga</h2>
+        Alas: <input type="number" id="triBase"><br>
+        Tinggi: <input type="number" id="triHeight"><br>
+        Sisi A: <input type="number" id="triSideA"><br>
+        Sisi B: <input type="number" id="triSideB"><br>
+        Sisi C: <input type="number" id="triSideC"><br>
+        <button onclick="calculateTriangle()">Hitung</button>
+        <p>Luas: <span id="triAreaResult"></span></p>
+        <p>Keliling: <span id="triPerimeterResult"></span></p>
+    </div>
+
+    <div id="circleCalculator" style="display: none;">
+        <h2>Lingkaran</h2>
+        Jari-jari: <input type="number" id="circleRadius"><br>
+        <button onclick="calculateCircle()">Hitung</button>
+        <p>Luas: <span id="circleAreaResult"></span></p>
+        <p>Keliling: <span id="circleCircumferenceResult"></span></p>
+    </div>
+
+    <button onclick="resetCalculator()">Reset</button>
+
+    <script>
+        function showRectangleCalculator() {
+            hideAllCalculators();
+            document.getElementById("rectangleCalculator").style.display = "block";
+        }
+
+        function showTriangleCalculator() {
+            hideAllCalculators();
+            document.getElementById("triangleCalculator").style.display = "block";
+        }
+
+        function showCircleCalculator() {
+            hideAllCalculators();
+            document.getElementById("circleCalculator").style.display = "block";
+        }
+
+        function hideAllCalculators() {
+            document.getElementById("rectangleCalculator").style.display = "none";
+            document.getElementById("triangleCalculator").style.display = "none";
+            document.getElementById("circleCalculator").style.display = "none";
+        }
+
+        function calculateRectangle() {
+            const length = parseFloat(document.getElementById("rectLength").value);
+            const width = parseFloat(document.getElementById("rectWidth").value);
+            const area = length * width;
+            const perimeter = 2 * (length + width);
+
+            document.getElementById("rectAreaResult").innerText = area;
+            document.getElementById("rectPerimeterResult").innerText = perimeter;
+        }
+
+        function calculateTriangle() {
+            const base = parseFloat(document.getElementById("triBase").value);
+            const height = parseFloat(document.getElementById("triHeight").value);
+            const sideA = parseFloat(document.getElementById("triSideA").value);
+            const sideB = parseFloat(document.getElementById("triSideB").value);
+            const sideC = parseFloat(document.getElementById("triSideC").value);
+
+            const area = 0.5 * base * height;
+            const perimeter = sideA + sideB + sideC;
+
+            document.getElementById("triAreaResult").innerText = area;
+            document.getElementById("triPerimeterResult").innerText = perimeter;
+        }
+
+        function calculateCircle() {
+            const radius = parseFloat(document.getElementById("circleRadius").value);
+            const area = Math.PI * radius * radius;
+            const circumference = 2 * Math.PI * radius;
+
+            document.getElementById("circleAreaResult").innerText = area;
+            document.getElementById("circleCircumferenceResult").innerText = circumference;
+        }
+
+        function resetCalculator() {
+            const inputFields = document.getElementsByTagName("input");
+            for (let i = 0; i < inputFields.length; i++) {
+                inputFields[i].value = "";
+            }
+
+            const resultSpans = document.getElementsByTagName("span");
+            for (let i = 0; i < resultSpans.length; i++) {
+                resultSpans[i].innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>
