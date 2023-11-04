@@ -1,44 +1,49 @@
-   // Fungsi untuk menghitung luas dan keliling persegi panjang
-   function hitungPersegiPanjang() {
-    // Mendapatkan nilai panjang dan lebar dari input
-    var panjang = document.getElementById("panjang").value;
-    var lebar = document.getElementById("lebar").value;
-
-    // Menghitung luas dan keliling persegi panjang
-    var luas = panjang * lebar;
-    var keliling = 2 * (panjang + lebar);
-
-    // Menampilkan hasil ke output
-    document.getElementById("luasPersegiPanjang").innerHTML = "Luas Persegi Panjang = " + luas + " cm<sup>2</sup>";
-    document.getElementById("kelilingPersegiPanjang").innerHTML = "Keliling Persegi Panjang = " + keliling + " cm";
+ function showSquare() {
+    document.getElementById('square').style.display = 'block';
+    document.getElementById('triangle').style.display = 'none';
+    document.getElementById('circle').style.display = 'none';
 }
 
-// Fungsi untuk menghitung luas dan keliling segitiga
-function hitungSegitiga() {
-    // Mendapatkan nilai alas, tinggi, dan sisi miring dari input
-    var alas = document.getElementById("alas").value;
-    var tinggi = document.getElementById("tinggi").value;
-    var sisiMiring = document.getElementById("sisiMiring").value;
-
-    // Menghitung luas dan keliling segitiga
-    var luas = 0.5 * alas * tinggi;
-    var keliling = alas + tinggi + sisiMiring;
-
-    // Menampilkan hasil ke output
-    document.getElementById("luasSegitiga").innerHTML = "Luas Segitiga = " + luas + " cm<sup>2</sup>";
-    document.getElementById("kelilingSegitiga").innerHTML = "Keliling Segitiga = " + keliling + " cm";
+function showTriangle() {
+    document.getElementById('square').style.display = 'none';
+    document.getElementById('triangle').style.display = 'block';
+    document.getElementById('circle').style.display = 'none';
 }
 
-// Fungsi untuk menghitung luas dan keliling lingkaran
-function hitungLingkaran() {
-    // Mendapatkan nilai jari-jari dari input
-    var jariJari = document.getElementById("jariJari").value;
-
-    // Menghitung luas dan keliling lingkaran
-    var luas = Math.PI * jariJari * jariJari;
-    var keliling = 2 * Math.PI * jariJari;
-
-    // Menampilkan hasil ke output
-    document.getElementById("luasLingkaran").innerHTML = "Luas Lingkaran = " + luas.toFixed(2) + " cm<sup>2</sup>";
-    document.getElementById("kelilingLingkaran").innerHTML = "Keliling Lingkaran = " + keliling.toFixed(2) + " cm";
+function showCircle() {
+    document.getElementById('square').style.display = 'none';
+    document.getElementById('triangle').style.display = 'none';
+    document.getElementById('circle').style.display = 'block';
 }
+
+function calculateRectangle() {
+    const length = parseFloat(document.getElementById('length').value);
+    const width = parseFloat(document.getElementById('width').value);
+    const area = length * width;
+    const perimeter = 2 * (length + width);
+    document.getElementById('rectangleArea').textContent = area;
+    document.getElementById('rectanglePerimeter').textContent = perimeter;
+}
+
+function calculateTriangle() {
+    const base = parseFloat(document.getElementById('base').value);
+    const height = parseFloat(document.getElementById('height').value);
+    const sideA = parseFloat(document.getElementById('sideA').value);
+    const sideB = parseFloat(document.getElementById('sideB').value);
+    const sideC = parseFloat(document.getElementById('sideC').value);
+    const area = (base * height) / 2;
+    const perimeter = sideA + sideB + sideC;
+    document.getElementById('triangleArea').textContent = area;
+    document.getElementById('trianglePerimeter').textContent = perimeter;
+}
+
+function calculateCircle() {
+    const radius = parseFloat(document.getElementById('radius').value);
+    const area = Math.PI * Math.pow(radius, 2);
+    const perimeter = 2 * Math.PI * radius;
+    document.getElementById('circleArea').textContent = area;
+    document.getElementById('circlePerimeter').textContent = perimeter;
+}
+
+
+showSquare(); // Menampilkan Persegi Panjang secara default
